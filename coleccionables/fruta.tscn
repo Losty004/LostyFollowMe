@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://sc41nok01f16"]
+
+[ext_resource type="Script" path="res://Fruta.gd" id="1_aq3mj"]
+[ext_resource type="Texture2D" uid="uid://ebw1c1a8d0na" path="res://sprites/particulas2.png" id="2_vb5ss"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fop0b"]
+radius = 15.8114
+
+[node name="Fruta" type="Area2D"]
+script = ExtResource("1_aq3mj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_vb5ss")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_fop0b")
