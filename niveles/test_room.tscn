@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://bvgvkojgojd68"]
+[gd_scene load_steps=12 format=3 uid="uid://bvgvkojgojd68"]
 
 [ext_resource type="Texture2D" uid="uid://dvynb4ad4y5n7" path="res://sprites/Tile.png" id="1_d6nea"]
 [ext_resource type="PackedScene" uid="uid://dlphnodsg8vvg" path="res://personajes/player.tscn" id="2_iun5g"]
 [ext_resource type="Texture2D" uid="uid://bhyl1k5mrb3wi" path="res://sprites/Background2.png" id="3_4oivh"]
+[ext_resource type="Texture2D" uid="uid://blfbptplshk3a" path="res://sprites/Background5.png" id="4_8u1qd"]
 [ext_resource type="Texture2D" uid="uid://cd616w1tjm5s5" path="res://sprites/Background1.png" id="4_vesg8"]
-[ext_resource type="Script" path="res://niveles/muerte.gd" id="5_64xfl"]
+[ext_resource type="Script" path="res://scripts/muerte.gd" id="5_64xfl"]
 [ext_resource type="PackedScene" uid="uid://sc41nok01f16" path="res://coleccionables/fruta.tscn" id="6_ylgb0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7pakl"]
@@ -155,7 +156,8 @@ terrain_set_0/terrain_0/color = Color(0.721569, 0, 0.223529, 1)
 sources/0 = SubResource("TileSetAtlasSource_7pakl")
 sources/1 = SubResource("TileSetScenesCollectionSource_cjgf1")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k12ik"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_whntc"]
+size = Vector2(7835, 181)
 
 [node name="Test Room" type="Node2D"]
 
@@ -174,6 +176,24 @@ layer_1/tile_data = PackedInt32Array()
 position = Vector2(208, 180)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 1)
+motion_mirroring = Vector2(1404, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(705, -484.5)
+scale = Vector2(1.8, 1.807)
+texture = ExtResource("4_8u1qd")
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 1)
+motion_mirroring = Vector2(1404, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+position = Vector2(705, 1019.5)
+scale = Vector2(1.8, 1.807)
+texture = ExtResource("4_8u1qd")
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 motion_scale = Vector2(0.1, 1)
@@ -194,7 +214,9 @@ scale = Vector2(1.8, 1.807)
 texture = ExtResource("4_vesg8")
 
 [node name="muerte" type="Area2D" parent="."]
+position = Vector2(-72, 1257)
 script = ExtResource("5_64xfl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="muerte"]
-shape = SubResource("RectangleShape2D_k12ik")
+position = Vector2(3084.5, 80.5)
+shape = SubResource("RectangleShape2D_whntc")

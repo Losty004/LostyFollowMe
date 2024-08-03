@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=3 uid="uid://7x3s33k0y7ux"]
+
+[ext_resource type="Script" path="res://Menu/Menu.gd" id="1_rfeoo"]
+[ext_resource type="FontFile" uid="uid://0qch4octvewo" path="res://Fuente de letra/Pixel Georgia.ttf" id="2_7infs"]
+[ext_resource type="FontFile" uid="uid://cykoubc4ycmnc" path="res://Fuente de letra/Pixel Georgia Bold.ttf" id="3_mw1ld"]
+[ext_resource type="PackedScene" uid="uid://cd2x4qh52br2m" path="res://scripts/parallax_background.tscn" id="4_8srvi"]
+
+[node name="MENU" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rfeoo")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_top = 35.0
+offset_right = 965.0
+offset_bottom = 178.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_7infs")
+theme_override_font_sizes/font_size = 86
+text = "Do You Come With Me?"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_top = 217.0
+offset_right = 179.0
+offset_bottom = 431.0
+
+[node name="Play" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_mw1ld")
+theme_override_font_sizes/font_size = 71
+action_mode = 0
+text = "PLAY"
+flat = true
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_mw1ld")
+theme_override_font_sizes/font_size = 71
+action_mode = 0
+text = "EXIT"
+flat = true
+
+[node name="Controls" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_mw1ld")
+theme_override_font_sizes/font_size = 71
+text = "CONTROLS"
+flat = true
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("4_8srvi")]
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.136
+anchor_bottom = 0.124
+offset_top = 572.0
+offset_right = 780.328
+offset_bottom = 600.648
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_7infs")
+theme_override_font_sizes/font_size = 38
+text = "JUEGUITO HECHO POR LOSTY XDXDXDXD
+Espero me ayuden a acabarlo lol"
+
+[connection signal="pressed" from="VBoxContainer/Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="VBoxContainer/Controls" to="." method="_on_controls_pressed"]

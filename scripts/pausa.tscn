@@ -1,0 +1,89 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsg43bi0ow67m"]
+
+[ext_resource type="Script" path="res://scripts/Pausa.gd" id="1_trk3o"]
+[ext_resource type="AudioStream" uid="uid://b2idnkx3rb1qx" path="res://sonidos/caminar.wav" id="2_0sjap"]
+[ext_resource type="FontFile" uid="uid://0qch4octvewo" path="res://Fuente de letra/Pixel Georgia.ttf" id="2_uefjk"]
+
+[node name="Pausa" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_trk3o")
+
+[node name="Texto" type="HBoxContainer" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.5
+offset_top = -31.0
+offset_right = 103.5
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Texto"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_uefjk")
+theme_override_font_sizes/font_size = 61
+text = "Pausa
+"
+
+[node name="Luz" type="ColorRect" parent="."]
+visible = false
+offset_left = -6.0
+offset_right = 1280.0
+offset_bottom = 668.0
+color = Color(0, 0, 0, 0.188235)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_0sjap")
+
+[node name="Opciones" type="VBoxContainer" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = 22.5
+offset_right = 102.0
+offset_bottom = 165.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="Resume" type="Button" parent="Opciones"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_uefjk")
+theme_override_font_sizes/font_size = 36
+text = "RESUME"
+flat = true
+
+[node name="Restart" type="Button" parent="Opciones"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_uefjk")
+theme_override_font_sizes/font_size = 36
+text = "RESTART"
+flat = true
+
+[node name="Exit" type="Button" parent="Opciones"]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_uefjk")
+theme_override_font_sizes/font_size = 36
+text = "EXIT
+"
+flat = true
+
+[connection signal="pressed" from="Opciones/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Opciones/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Opciones/Exit" to="." method="_on_exit_pressed"]

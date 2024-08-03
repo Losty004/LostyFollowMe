@@ -1,8 +1,15 @@
-[gd_scene load_steps=42 format=3 uid="uid://dlphnodsg8vvg"]
+[gd_scene load_steps=49 format=3 uid="uid://dlphnodsg8vvg"]
 
 [ext_resource type="Texture2D" uid="uid://cmr04d73sfskn" path="res://sprites/LostyGamemaker2.2.png" id="1_7j5rc"]
 [ext_resource type="Script" path="res://personajes/player.gd" id="1_usd27"]
 [ext_resource type="Script" path="res://personajes/FrutasLabel.gd" id="3_exhbp"]
+[ext_resource type="FontFile" uid="uid://0qch4octvewo" path="res://Fuente de letra/Pixel Georgia.ttf" id="3_iuc4j"]
+[ext_resource type="PackedScene" uid="uid://dsg43bi0ow67m" path="res://scripts/pausa.tscn" id="4_04rkm"]
+[ext_resource type="Texture2D" uid="uid://7jpem67ghr0x" path="res://sprites/right.png" id="6_028wt"]
+[ext_resource type="Texture2D" uid="uid://bjr8n2a1qjhmj" path="res://sprites/left .png" id="7_r11o7"]
+[ext_resource type="Texture2D" uid="uid://dnkp1x836qmr2" path="res://sprites/Boton.png" id="7_t0br2"]
+[ext_resource type="PackedScene" uid="uid://7x3s33k0y7ux" path="res://Menu/menu.tscn" id="8_38n3i"]
+[ext_resource type="Texture2D" uid="uid://cnwglwem5yd07" path="res://sprites/jump.png" id="8_ixvgs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gp4xm"]
 atlas = ExtResource("1_7j5rc")
@@ -325,12 +332,51 @@ editor_draw_drag_margin = true
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer"]
 offset_right = 54.0
 offset_bottom = 29.0
+scale = Vector2(3.155, 3.155)
 
 [node name="FrutasLabel" type="Label" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_iuc4j")
 text = "Frutas:"
 script = ExtResource("3_exhbp")
 
 [node name="FrutasLabel2" type="Label" parent="CanvasLayer/HBoxContainer"]
 layout_mode = 2
 script = ExtResource("3_exhbp")
+
+[node name="Pausa" parent="." instance=ExtResource("4_04rkm")]
+
+[node name="Botones Tactiles" type="CanvasLayer" parent="."]
+
+[node name="Derecha" type="TouchScreenButton" parent="Botones Tactiles"]
+position = Vector2(210, 493)
+scale = Vector2(1.68, 1.68)
+texture_normal = ExtResource("6_028wt")
+action = "ui_right"
+
+[node name="Pausa" type="TouchScreenButton" parent="Botones Tactiles"]
+position = Vector2(1086, 0)
+scale = Vector2(0.66, 0.66)
+texture_normal = ExtResource("7_t0br2")
+action = "Pausa"
+
+[node name="MENU" parent="Botones Tactiles/Pausa" instance=ExtResource("8_38n3i")]
+
+[node name="Velocidad" type="TouchScreenButton" parent="Botones Tactiles"]
+position = Vector2(3.00003, 345)
+scale = Vector2(1.68, 1.68)
+texture_normal = ExtResource("6_028wt")
+action = "shift"
+
+[node name="Izquierda" type="TouchScreenButton" parent="Botones Tactiles"]
+position = Vector2(0, 498)
+scale = Vector2(1.64, 1.64)
+texture_normal = ExtResource("7_r11o7")
+texture_pressed = ExtResource("7_r11o7")
+action = "ui_left"
+
+[node name="Salto" type="TouchScreenButton" parent="Botones Tactiles"]
+position = Vector2(1008, 534)
+scale = Vector2(1.42, 1.29)
+texture_normal = ExtResource("8_ixvgs")
+action = "ui_accept"

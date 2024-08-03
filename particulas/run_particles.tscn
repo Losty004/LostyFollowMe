@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cr0iiqqewagoh"]
+
+[ext_resource type="Texture2D" uid="uid://cgvniya6ymdy1" path="res://sprites/particulas.png" id="1_4o3bg"]
+
+[sub_resource type="Curve" id="Curve_qm32v"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_wo7a2"]
+offsets = PackedFloat32Array(0.546667, 0.986667)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_oyp0b"]
+offsets = PackedFloat32Array(0.4, 1)
+colors = PackedColorArray(0.952941, 0.952941, 0.952941, 1, 0.952941, 0.952941, 0.952941, 0)
+
+[node name="runParticles" type="CPUParticles2D"]
+texture_filter = 1
+emitting = false
+amount = 12
+lifetime = 1.5
+one_shot = true
+explosiveness = 1.0
+texture = ExtResource("1_4o3bg")
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 45.0
+initial_velocity_max = 45.0
+scale_amount_curve = SubResource("Curve_qm32v")
+color_ramp = SubResource("Gradient_wo7a2")
+color_initial_ramp = SubResource("Gradient_oyp0b")

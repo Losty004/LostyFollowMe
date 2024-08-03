@@ -5,6 +5,8 @@ class_name Player
 @onready var sprite = $AnimatedSprite2D
 @onready var frutaslabel = $CanvasLayer/HBoxContainer/FrutasLabel
 
+
+
 const SPEED = 400
 const run = 300
 const JUMP_VELOCITY = 400.0
@@ -53,4 +55,5 @@ func _dead():
 
 func iupdate():
 	$CanvasLayer/HBoxContainer/FrutasLabel2.text = str(Global.frutas)
+	
 
